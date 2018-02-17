@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/Deguang/vue-ssr-demo/issues"
   },
-  "homepage": "https://github.com/Deguang/vue-ssr-demo#readme"
+  "homepage": "https://github.com/Deguang/vue-ssr-demo#readme",
+  "dependencies": {
+    "vue": "^2.5.13",
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1",
+    "webpack": "^3.10.0"
+  }
 }
