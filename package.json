@@ -4,7 +4,10 @@
   "description": "A SSR(server-side-render) demo with Vue.js.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-client": "webpack --config build/webpack.client.js",
+    "build-server": "webpack --config build/webpack.server.js",
+    "build": "npm run build-client && npm run build-server",
+    "start": "npm run build && node server/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +20,7 @@
   },
   "homepage": "https://github.com/Deguang/vue-ssr-demo#readme",
   "dependencies": {
+    "express": "^4.16.2",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
@@ -28,6 +32,7 @@
     "babel-preset-env": "^1.6.1",
     "css-loader": "^0.28.10",
     "vue-loader": "^14.1.1",
+    "vue-server-renderer": "^2.5.13",
     "vue-template-compiler": "^2.5.13"
   }
 }
