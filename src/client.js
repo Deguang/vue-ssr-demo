@@ -1,13 +1,12 @@
+/**
+ * client render entry-point
+ */
+
 import Vue from 'vue';
-import VueRouter from 'vue-router';
+import App from './App.vue';
 
-Vue.use(VueRouter);
+const VueApp = Vue.extend(App);
 
-const appComponent = require('app');
-
-
-
-
-new app = Vue({
-
+const app = new VueApp({
+  el: '.my-app'
 })

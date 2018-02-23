@@ -5,7 +5,7 @@
   </div>
 </template>
 <script>
-import DiyCmp from './DiyCmp'
+import DiyCmp from './DiyCmp.vue'
 
 export default {
   components: {
