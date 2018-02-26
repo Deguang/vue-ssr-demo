@@ -16,6 +16,8 @@ const clientBundleFileUrl = '/bundle.client.js';
 
 
 // server-side rendering
+const template = fs.readFileSync(path.join(__dirname, '../src/index.ejs'), 'utf8')
+console.log(template)
 app.get('/', function(req, res) {
     bundleRenderer.renderToString((err, html) => {
         if(err){
@@ -24,21 +26,23 @@ app.get('/', function(req, res) {
                 <pre>${err.stack}</pre>
             `)
         } else {
-            res.send(`
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-                    <title>Vue SSR Demo</title>
-                </head>
-                <body>
-                    ${html}
-                    <script src="${clientBundleFileUrl}"></script>
-                </body>
-                </html>
-            `)
+            // res.send(`
+            //     <!DOCTYPE html>
+            //     <html lang="en">
+            //     <head>
+            //         <meta charset="UTF-8">
+            //         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            //         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+            //         <title>Vue SSR Demo</title>
+            //     </head>
+            //     <body>
+            //         ${html}
+            //         <script src="${clientBundleFileUrl}"></script>
+            //     </body>
+            //     </html>
+            // `)
+            html += `<script src="${clientBundleFileUrl}"></script>`;
+            res.send(template.replace('${html}', html))
         }
     });
 });
